@@ -11,19 +11,9 @@
       "id": 2
     },
     {
-      "name": "Dan Abramov",
-      "number": "321",
-      "id": 3
-    },
-    {
       "name": "Mary Poppendieck",
       "number": "39-23-6423122",
       "id": 4
-    },
-    {
-      "name": "Test",
-      "number": "123",
-      "id": 5
     }
   ]
 }

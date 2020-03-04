@@ -3,6 +3,7 @@ import personService from './services/persons';
 import Persons from './components/Persons';
 import Filter from './components/Filter';
 import AddNew from './components/AddNew';
+import Notification from './components/Notification';
 
 const App = () => {
 
@@ -10,6 +11,7 @@ const App = () => {
   const [newName, setNewName] = useState('');
   const [newNumber, setNewNumber] = useState('');
   const [filter, setFilter] = useState('');
+  const [notification, setNotification] = useState(null);
 
   useEffect(() => {
 		personService
@@ -36,13 +38,27 @@ const App = () => {
           .update(persons[personExists].id, {name: newName, number: newNumber})
           .then(updatedPerson => {
             setPersons(persons.map(person => person.id !== persons[personExists].id ? person : updatedPerson));
+            setNotification(`${updatedPerson.name} updated successfully.`);
+            setTimeout(() => {
+              setNotification(null)
+            }, 5000);
+          })
+          .catch(error => {
+            console.log('error!?');
+            setNotification(`Information for ${newName} has already been removed from the server.`);
+            setTimeout(() => {
+              setNotification(null)
+            }, 5000);
           });
       };
     } else {
-
       personService
         .create({ name: newName, number: newNumber })
         .then(returnedPerson => {
+          setNotification(`${newName} added successfully.`);
+          setTimeout(() => {
+            setNotification(null)
+          }, 5000);
           setPersons(persons.concat(returnedPerson));
           setNewName('');
           setNewNumber('');
@@ -76,6 +92,7 @@ const App = () => {
   return (
     <div>
       <h2>Phonebook</h2>
+      <Notification message={notification} />
       <Filter value={filter} handleChange={handleFilterChange} />
       <h3>Add a new</h3>
       <AddNew submit={addName} newNameValue={newName} newNumberValue={newNumber} handleNameChange={handleNameChange} handleNumberChange={handleNumberChange} />

@@ -32,7 +32,7 @@ const App = () => {
       person.name === newName
     );
 
-    if (personExists > 0) {
+    if (personExists >= 0) {
       if(window.confirm(`${newName} is already in the phonebook, replace the old number with the new one?`)) {
         personService
           .update(persons[personExists].id, {name: newName, number: newNumber})
@@ -62,6 +62,12 @@ const App = () => {
           setPersons(persons.concat(returnedPerson));
           setNewName('');
           setNewNumber('');
+        })
+        .catch(error => {
+          setNotification(error.response.data.error);
+          setTimeout(() => {
+            setNotification(null)
+          }, 5000);
         });
     };
   };
@@ -83,6 +89,10 @@ const App = () => {
       personService
         .remove(id)
         .then(deletedPerson => {
+          setNotification(`removed ${name} from database.`);
+          setTimeout(() => {
+            setNotification(null)
+          }, 5000);
           console.log(deletedPerson);
           setPersons(persons.filter(p => p.id !== id));
         });

@@ -1,0 +1,6 @@
+/node_modules
+/requests
+npm-debug.log
+.DS_Store
+/*.env
+mongo.js

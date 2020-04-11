@@ -6,7 +6,7 @@ Part 3: https://infinite-sea-15795.herokuapp.com
 
 Outline:
 
-* [Part 0](https://github.com/ikrougovoi/fullstackopen/tree/master/part0)Part 0: Web App fundamenals (Requests and Client / Server Routing)
+* [Part 0](https://github.com/ikrougovoi/fullstackopen/tree/master/part0): Web App fundamenals (Requests and Client / Server Routing)
 * [Part 1](https://github.com/ikrougovoi/fullstackopen/tree/master/part1): Intro to React
 * [Part 2](https://github.com/ikrougovoi/fullstackopen/tree/master/part2): State & Server Communication (React useState & Axios)
 * [Part 3](https://github.com/ikrougovoi/fullstackopen/tree/master/part3): Backend with NodeJS and using ESLint (NodeJS + Express + MongoDB)

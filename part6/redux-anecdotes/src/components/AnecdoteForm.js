@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import useField from '../hooks/index';
 
 // reducers & actions
 import { createAnecdote } from '../reducers/anecdoteReducer';
@@ -7,10 +8,12 @@ import { setNotification } from '../reducers/notificationReducer';
 
 const AnecdoteForm = (props) => {
 
+  const contentField = useField('text');
+
   const addAnecdote = async (event) => {
     event.preventDefault();
-    const content = event.target.anecdote.value;
-    event.target.anecdote.value = '';
+    const content = contentField.value;
+    contentField.value = '';
     props.createAnecdote(content);
     props.setNotification(`Anecdote ${content} created.`, 3);
   };
@@ -18,7 +21,7 @@ const AnecdoteForm = (props) => {
   return (
     <form onSubmit={addAnecdote}>
       <div>
-        <input name='anecdote' />
+        <input {...contentField} />
       </div>
       <button type='submit'>create</button>
     </form>

@@ -1,0 +1,12 @@
+body {
+  margin: 0
+}
+
+.clickable-card {
+  cursor: pointer;
+}
+
+.clickable-card:hover {
+  background-color: #007bff;
+  color: #FFF;
+}

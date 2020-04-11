@@ -1,0 +1,41 @@
+{
+  "notes": [
+    {
+      "content": "custom-hookit aivan mahtavia",
+      "id": 1
+    },
+    {
+      "content": "paras feature ikinä <3",
+      "id": 2
+    },
+    {
+      "content": "Test NOTE",
+      "id": 3
+    },
+    {
+      "content": "TEST",
+      "id": 4
+    },
+    {
+      "content": "TEST AGAIN",
+      "id": 5
+    }
+  ],
+  "persons": [
+    {
+      "name": "mluukkai",
+      "number": "040-5483923",
+      "id": 1
+    },
+    {
+      "name": "Test Name",
+      "number": "123-123-123",
+      "id": 2
+    },
+    {
+      "name": "TEST",
+      "number": "321-321-321",
+      "id": 3
+    }
+  ]
+}

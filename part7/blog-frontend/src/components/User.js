@@ -14,11 +14,11 @@ const User = ({ user }) => {
 
   return (
     <Row>
-      <Col xs lg={{ span: 8, offset: 2}}>
+      <Col xs lg={{ span: 8, offset: 2 }}>
         <h2>{user.name}</h2>
         <h6>added blogs</h6>
         <ListGroup>
-          {user.blogs.map(blog => 
+          {user.blogs.map(blog =>
             <ListGroup.Item key={blog.id}>
               <Link to={`/blogs/${blog.id}`}>{blog.title}</Link>
             </ListGroup.Item>

@@ -14,3 +14,4 @@ Outline:
 * [Part 5](https://github.com/ikrougovoi/fullstackopen/tree/master/part5): Front-End Authentication and Testing React (Testing Library + E2E with Cypress)
 * [Part 6](https://github.com/ikrougovoi/fullstackopen/tree/master/part6): State Management with Redux (Reducers, Multiple Reducers, and Server Communication)
 * [Part 7](https://github.com/ikrougovoi/fullstackopen/tree/master/part7): Routing, Hooks, CSS / UI Libraries and breaking down Webpack
+* [Part 8](https://github.com/ikrougovoi/fullstackopen/tree/master/part8): WIP - GraphQL Types, Queries, Resolvers and Mutations

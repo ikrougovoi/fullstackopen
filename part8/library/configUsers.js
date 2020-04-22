@@ -1,10 +1,11 @@
 const mongoose = require('mongoose');
+require('dotenv').config();
 
 const User = require('./models/user');
 
 mongoose.set('useFindAndModify', false, 'useCreateIndex', true);
 
-const MONGODB_URI = 'mongodb+srv://fullstackopen-user:ZYf2HqAHoGnlpMo2@cluster-f-xruup.mongodb.net/library-app?retryWrites=true&w=majority';
+const MONGODB_URI = process.env.MONGODB_URI;
 
 console.log('connecting to', MONGODB_URI);
 

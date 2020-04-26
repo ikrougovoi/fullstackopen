@@ -1,4 +1,4 @@
-import { NewPatientEntry, Gender } from './types';
+import { NewPatientEntry, Gender, NewEntry } from './types';
 
 /* patients
 {
@@ -10,8 +10,9 @@ import { NewPatientEntry, Gender } from './types';
   "occupation": "New york city cop"
 }
 */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
-const isString = (text: any): text is string => { /* eslint-disable @typescript-eslint/no-explicit-any */
+const isString = (text: any): text is string => { 
   return typeof text === 'string' || text instanceof String;
 };
 
@@ -44,14 +45,51 @@ const parseGender = (gender: any): Gender => {
   return gender;
 };
 
-const toNewPatientEntry = (object: any): NewPatientEntry => {
+export const toNewPatientEntry = (object: any): NewPatientEntry => {
   return {
     name: parseText(object.name),
     dateOfBirth: parseDate(object.dateOfBirth),
     ssn: parseText(object.ssn),
     gender: parseGender(object.gender),
-    occupation: parseText(object.occupation)
+    occupation: parseText(object.occupation),
+    entries: []
   };
 };
 
-export default toNewPatientEntry;
+export const toNewEntry = (object: any): NewEntry => {
+
+  const commonFields = {
+    type: object.type,
+    date: parseDate(object.date),
+    description: parseText(object.description),
+    specialist: parseText(object.specialist),
+    diagnosisCodes: object.diagnosisCodes ? object.diagnosisCodes.map((code: any) => parseText(code)) : null
+  };
+
+  switch (object.type) {
+    case 'Hospital':
+      return {
+        ...commonFields,
+        discharge: {
+          date: parseDate(object.discharge.date),
+          criteria: parseText(object.discharge.criteria)
+        }
+      };
+    case 'OccupationalHealthcare':
+      return {
+        ...commonFields,
+        employerName: parseText(object.employerName),
+        sickLeave: {
+          startDate: parseDate(object.sickLeave.startDate),
+          endDate: parseDate(object.sickLeave.endDate)
+        }
+      };
+    case 'HealthCheck':
+      return {
+        ...commonFields,
+        healthCheckRating: object.healthCheckRating
+      };
+    default:
+      throw new Error('Incorrect entry:' + object);
+  }
+};

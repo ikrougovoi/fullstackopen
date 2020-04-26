@@ -15,3 +15,4 @@ Outline:
 * [Part 6](https://github.com/ikrougovoi/fullstackopen/tree/master/part6): State Management with Redux (Reducers, Multiple Reducers, and Server Communication)
 * [Part 7](https://github.com/ikrougovoi/fullstackopen/tree/master/part7): Routing, Hooks, CSS / UI Libraries and breaking down Webpack
 * [Part 8](https://github.com/ikrougovoi/fullstackopen/tree/master/part8): GraphQL Client & Server, Authentication w/ GraphQL, Interacting w/ the Cache, Fragments and Subscriptions
+* [Part 9](https://github.com/ikrougovoi/fullstackopen/tree/master/part9): Intro to TypeScript (Node & React), React Context (useContext) & Reducer (useReducer) Hooks
